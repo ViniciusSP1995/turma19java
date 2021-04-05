@@ -3,26 +3,16 @@ programa
 	
 	funcao inicio()
 	{
-		//objetivo
-		//inicio
-		//variaveis
-		cadeia nome
-		real grausCelsius
-		real grausFahrenheit
-		
-
-		
-		
-
-
-		escreva("Digite seu nome: ")
-		leia(nome) 
-		escreva("Qual a temperatura em celsius? ")
-		leia(grausCelsius)
-		escreva("A temperatura em Fahrenheit é ", grausCelsius*1.8+32)
-		
-		
-		//fim
+		inteiro tipo
+		escreva("Digite o tipo: 1-A 2-AB 3-B 4-0 :")
+		leia(tipo)
+		faca (tipo <= 0 ou tipo > 4)
+		{
+			leia(tipo)
+			escreva("\nVc não selecionou de 1 a 4, tente de novo:")
+			
+			
+		}enquanto (tipo <= 0 ou tipo > 4)
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -30,7 +20,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 132; 
+ * @POSICAO-CURSOR = 135; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
