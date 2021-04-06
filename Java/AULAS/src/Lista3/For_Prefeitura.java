@@ -1,9 +1,9 @@
 package Lista3;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 class For_Prefeitura {
-	public static final double HABITANTES = 4.00;  //constante
 	public static void main(String[] args) {
 		/*1- A prefeitura de uma cidade fez uma pesquisa entre 20 de seus habitantes, coletando dados sobre o salário e número de filhos. A prefeitura deseja saber:   
 		a) média do salário da população; 
@@ -11,9 +11,10 @@ class For_Prefeitura {
 		c) maior salário; 
 		d) percentual de pessoas com salário até R$100,00.  
 		*/
-		
+		Locale.setDefault(Locale.US);
 		Scanner leia = new Scanner(System.in);
 		
+				final int HABITANTES = 20;  //constante
 				double salario = 0.00;
 				int numeroFilhos = 0;
 				double mediaSalarios = 0.00;
@@ -26,10 +27,10 @@ class For_Prefeitura {
 
 			
 			for (int x=1;x<=HABITANTES; x++){
-					System.out.println("Habitante : \n"+x);
-					System.out.println("Digite o salario do habitante: \n");
+					System.out.println("Habitante "+ x);
+					System.out.print("Digite o salario do habitante: ");
 					salario = leia.nextDouble();
-					System.out.println("Digite o numero de filhos do habitante: ");
+					System.out.print("Digite o numero de filhos do habitante: ");
 					numeroFilhos = leia.nextInt();
 					totalSalarios = totalSalarios + salario;
 					totalNumeroFilhos = totalNumeroFilhos + numeroFilhos;

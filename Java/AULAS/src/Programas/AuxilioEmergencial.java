@@ -6,7 +6,7 @@ public class AuxilioEmergencial {
 
 	public static void main(String[] args) {
 		Scanner leia = new Scanner(System.in);
-		char situacaoEmergencial ;
+		char situacaoEmergencial;
 		String nome;
 		int filhos;
 		
