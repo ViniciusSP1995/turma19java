@@ -6,7 +6,7 @@ public class Cliente {
 	public String cpf;
 	public String email;
 	public String telefone;
-	public char genero;
+	public char genero, afirmacao;
 	
 
 	public String tratamento() {
