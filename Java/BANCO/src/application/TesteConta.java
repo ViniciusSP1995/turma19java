@@ -21,6 +21,7 @@ public class TesteConta {
 		System.out.println("Digite o valor:");
 		double valor = leia.nextDouble();
 		System.out.println("Operação de 1-credito  ou 2-debito?");
+		
 		char opcao = leia.next().charAt(0);
 		if (opcao =='1') {
 			conta.credito(valor);
@@ -29,7 +30,6 @@ public class TesteConta {
 		}
 		
 		System.out.printf("CPF: %s \n",conta.getCpf());
-		System.out.printf("Numero conta: %d \n",conta.getNumeroConta());
 		System.out.printf("Saldo : %.2f \n",conta.getSaldo());
 	}
 

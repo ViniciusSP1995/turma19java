@@ -1,23 +1,19 @@
 package entidades;
-
+	
 public class Produto {
-
-	// Atributos
 	private String descricao;
 	private String codigo;
 	private double valorUnitario;
 	private int qtdeEstoque;
-
-	// Construtores
-	public Produto(String descricao, String codigo, double valorUnitario, int qtdeEstoque) {
-		super(); // classe mãe
+	
+	public Produto(String descricao, String codigo, double valorUnitario) {
+		super(); //classe mãe
 		this.descricao = descricao;
 		this.codigo = codigo;
 		this.valorUnitario = valorUnitario;
-		this.qtdeEstoque = qtdeEstoque;
 	}
+	//encapsulamento - getter and setters
 
-	// Encapsulamento
 	public String getDescricao() {
 		return descricao;
 	}
@@ -49,20 +45,17 @@ public class Produto {
 	public void setQtdeEstoque(int qtdeEstoque) {
 		this.qtdeEstoque = qtdeEstoque;
 	}
-
-	// Métodos
-
+	
+	
+	
+	
+	//metodos
 	public void incluirEstoque(int valorSerIncluido) {
 		this.qtdeEstoque = this.qtdeEstoque + valorSerIncluido;
-		// this.qtdeEstoque += valorSerIncluido;
 	}
-
 	public void tirarEstoque(int valorSerExcluido) {
-
 		if (this.qtdeEstoque >= valorSerExcluido) {
 			this.qtdeEstoque = this.qtdeEstoque - valorSerExcluido;
-		} else {
-			System.out.println("Estoque indisponível");
 		}
 	}
 }

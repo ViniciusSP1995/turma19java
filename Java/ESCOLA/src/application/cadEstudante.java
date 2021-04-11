@@ -65,7 +65,12 @@ public class cadEstudante {
 			} else {
 				System.out.println("Muito bem!");
 			}
-		}
+			
+			aluno.imprimirBoletim();
+			System.out.println("Continua 1- sim ou 6- nao");
+			opcao = leia.next().charAt(0);
+			
+			}
 		} while(opcao != '6');
 		
 		System.out.println("FIM DO PROGRAMA");

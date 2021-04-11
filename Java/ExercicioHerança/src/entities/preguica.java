@@ -1,12 +1,17 @@
 package entities;
 
 public class preguica extends Animais {
-	public preguica (String nome, int idade, String som) {
-		super (nome,idade,som);
-		
-
+	public preguica (String nome, int idade) {
+		super (nome,idade);
 	}
-	public void subirArvore() {
-		System.out.println("*********SOBE NA ÁRVORE!!!*********");
+	
+	
+	public String movimentacao() {
+		return "*********SOBE NA ÁRVORE!!!*********";
+	}
+	
+	@Override
+	public String fazerSom() {
+		return "ZZzzZzzzzzzzzZZzzzzzZZZ";
 	}
 }

@@ -1,5 +1,8 @@
 package application;
 
+import java.util.Scanner;
+
+import entities.Animais;
 import entities.cachorro;
 import entities.cavalo;
 import entities.preguica;
@@ -7,19 +10,21 @@ import entities.preguica;
 public class animalApp {
 
 	public static void main(String[] args) {
-		cachorro dog = new cachorro("Rex",5, "AU! AU! AU!");
-		cavalo horse = new cavalo("Gandolf",8,"IIIIIRRRIIIIIIINNNN");
-		preguica sloth = new preguica("Jerry",10,"ZZzzZzzzzzzzzZZzzzzzZZZ");
+		Scanner leia = new Scanner(System.in);
 		
-		System.out.println("CACHORRO!\nNOME: " + dog.getNome() + "\nANOS: " + dog.getIdade()+ "\nSOM: "+dog.getSom());
-		dog.deveCorrer();
-		System.out.println();
-		System.out.println("CAVALO!\nNOME: " + horse.getNome() + "\nANOS: " + horse.getIdade()+ "\nSOM: "+horse.getSom());
-		horse.deveCorrer();
-		System.out.println();
-		System.out.println("PREGUIÇA!\nNOME: " + sloth.getNome() + "\nANOS: " + sloth.getIdade()+ "\nSOM: "+sloth.getSom());
-		sloth.subirArvore();
+		Animais animal = new Animais();
+		cachorro dog = new cachorro("Rex",5);
+		cavalo horse = new cavalo("Gandolf", 8);
+		preguica sloth = new preguica("Jerry", 10);
 		
+		System.out.print("Cachorro!\n" + "Se chama: " + dog.nome + "\nPossui " + dog.idade + " anos\n");
+		System.out.print("Ele faz " + dog.fazerSom()+ " e "  + dog.movimentacao());
+		System.out.println();
+		System.out.print("\nCavalo!\n" + "Se chama: " + horse.nome + "\nPossui " + horse.idade + " anos\n");
+		System.out.println("Ele faz " + dog.fazerSom()  + " e " + dog.movimentacao());
+		System.out.println();
+		System.out.print("\nPreguiça!\n" + "Se chama: " + sloth.nome + "\nPossui " + sloth.idade + " anos\n");
+		System.out.println("Ele faz " + sloth.fazerSom() + " e " + sloth.movimentacao());
 	}
 
 }

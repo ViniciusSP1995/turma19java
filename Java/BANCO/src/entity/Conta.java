@@ -17,6 +17,10 @@ public class Conta {
 		this.ativa = ativa;
 	}
 	
+	public Conta () {
+		
+	}
+	
 	//encapsulamento
 	public String getCpf () {
 		return cpf;

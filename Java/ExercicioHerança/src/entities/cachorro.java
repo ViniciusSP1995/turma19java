@@ -1,11 +1,17 @@
 package entities;
 
 public class cachorro extends Animais {
-	public cachorro(String nome, int idade, String som) {
-		super(nome, idade, som);
+	public cachorro(String nome, int idade) {
+		super(nome, idade);
 	}
 	
-	public void deveCorrer( ) {
-		System.out.println(">>>>>>>>>>CORRE!!!>>>>>>>>>>>>>>>");
+
+	public String movimentacao() {
+		return ">>>>>>>>>>CORRE!!!>>>>>>>>>>>>>>>";
+	}
+	
+	@Override
+	public String fazerSom() {
+		return "AU! AU! AU!";
 	}
 }
