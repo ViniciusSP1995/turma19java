@@ -1,12 +1,13 @@
 package entidades;
 
-public class Produto {
+public abstract class Produto {
 
 	// Atributos
 	private String descricao;
 	private String codigo;
 	private double valorUnitario;
 	private int qtdeEstoque;
+	//public int comprarItens;
 
 	// Construtores
 	public Produto(String descricao, String codigo, double valorUnitario, int qtdeEstoque) {
