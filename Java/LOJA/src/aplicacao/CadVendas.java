@@ -32,16 +32,16 @@ public class CadVendas {
 		Roupa prod4 = new Roupa("Palmeiras", "P002", 200, 2, "Adidas");
 		Roupa prod5 = new Roupa("Flamengo", "F003", 200, 2, "Adidas");
 
-		System.out.println("LOJA 4U - O SEU LUGAR É AQUI");
+		System.out.println("LOJA 4U - O SEU LUGAR É AQUI!");
 		System.out.println("SEJA BEM VINDE!! =D");
 
 		do {
 			System.out.println("\nCamisetas: \n");
-			System.out.println("1 - São Paulo");
-			System.out.println("2 - Corinthians");
-			System.out.println("3 - Santos");
-			System.out.println("4 - Palmeiras");
-			System.out.println("5 - Flamengo");
+			System.out.println("1 - " + prod1.getDescricao() + " | Quantidade em estoque: (" + prod1.getQtdeEstoque()+ ")");
+			System.out.println("2 - " + prod2.getDescricao() + " | Quantidade em estoque: (" + prod2.getQtdeEstoque()+ ")");
+			System.out.println("3 - " + prod3.getDescricao() + " | Quantidade em estoque: (" + prod3.getQtdeEstoque()+ ")");
+			System.out.println("4 - " + prod4.getDescricao() + " | Quantidade em estoque: (" + prod4.getQtdeEstoque()+ ")");
+			System.out.println("5 - " + prod5.getDescricao() + " | Quantidade em estoque: (" + prod5.getQtdeEstoque()+ ")");
 			System.out.println("6 - Carrinho e Pagamento");
 			System.out.println("7 - Sair");
 			System.out.println();

@@ -4,7 +4,7 @@ public class Conta {
 	//atributos
 	public int numero;
 	public String cpf;
-	private double saldo;
+	private double saldo = 0;
 	public boolean ativa;
 	
 	public Conta(int numero, String cpf) {
@@ -34,10 +34,20 @@ public class Conta {
 	}
 	//metodo
 	public void debito(double valor) {
+		if (saldo <=0 || saldo < valor) { //
+			System.out.print("Operação não poderá ser válida, pois o saldo ficará negativo!\n");
+		} else if (saldo >=0) {
 		saldo = saldo - valor;
+			System.out.printf("Movimentação realizada com sucesso! Seu saldo agora é de R$: %.2f\n\n",getSaldo());
+		}
 	}
 	
 	public void credito(double valor) {
+		saldo = saldo + valor;
+		System.out.printf("Movimentação realizada com sucesso! Seu saldo agora é de R$: %.2f\n\n",getSaldo());
+	}
+
+	public void SaldoFinal(double valor) {
 		saldo = saldo + valor;
 	}
 }

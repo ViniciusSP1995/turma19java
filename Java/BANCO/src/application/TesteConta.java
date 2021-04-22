@@ -4,6 +4,8 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entity.Conta;
+import entity.corrente;
+import entity.poupanca;
 
 public class TesteConta {
 
@@ -28,6 +30,7 @@ public class TesteConta {
 		Locale.setDefault(Locale.US);
 		
 		Conta conta = new Conta();
+		
 		Scanner leia = new Scanner(System.in);
 		
 		
@@ -40,9 +43,11 @@ public class TesteConta {
 			opcao = leia.next().charAt(0);
 			
 			if (opcao == '1') { // Vinny
-				int diaAtual, diaAniversario;
+				
+				/*int diaAtual, diaAniversario;*/
 				System.out.println("Digite o dia do seu aniversário: ");
-				diaAniversario = leia.nextInt();
+				int diaAniversario = leia.nextInt();
+				poupanca contaP = new poupanca(diaAniversario);
 				System.out.println("CONTA POUPANÇA");
 				System.out.println("[BANCO 4U - G4]\n");
 				System.out.println("[O SEU LUGAR É AQUI]\n\n\n");
@@ -56,41 +61,32 @@ public class TesteConta {
 				if (aux == '2') {//
 					break;
 				}//
-				System.out.printf("Saldo Atual R$: %.2f\n",saldo);
+				System.out.printf("Saldo Atual R$: %.2f\n",contaP.getSaldo());
 				System.out.print("Deseja fazer alguma movimentação? S/N ");
 				movimento = leia.next().toUpperCase().charAt(0);
 				
 				if (movimento == 'S') {//
 					for (x = 1; x <=10; x++) {//
+						
 						System.out.printf("Movimentação %d\n",x);
-						System.out.printf("Saldo Atual R$: %.2f",saldo);
+						System.out.printf("Saldo Atual R$: %.2f",contaP.getSaldo());
 						
 						System.out.print("\nMOVIMENTO D - Débito ou C - Crédito: ");
 						operacao = leia.next().toUpperCase().charAt(0);
 						if (operacao == 'D') { //
 							System.out.print("Valor do movimento R$: ");
 							valorMovimento = leia.nextDouble();
-							
-							if (saldo <=0 || saldo < valorMovimento) { //
-								System.out.print("Operação não poderá ser válida, pois o saldo ficará negativo!\n");
-								
-							} else if (saldo >= 0) {  //
-								saldoFinal = saldo - valorMovimento;
-								saldo = saldoFinal;
-								System.out.printf("Movimentação realizada com sucesso! Seu saldo agora é de R$: %.2f\n\n",saldoFinal);
-								
-							}  //
-							
+							contaP.debito(valorMovimento);						
 						}else if (operacao == 'C') { //
 								System.out.print("Valor do movimento R$: ");
 								valorMovimento = leia.nextDouble();
-								saldoFinal = saldo + valorMovimento;
-								saldo = saldoFinal;
-								System.out.printf("Movimentação realizada com sucesso! Seu saldo agora é de R$: %.2f\n\n",saldoFinal);
+								contaP.credito(valorMovimento);
+								
 							} else { //
 								System.out.print("Não foi possível identificar sua afirmação. Tente novamente \n ");
 							}  //
 							System.out.println("Obrigade por utilizar nossos serviços!\n");
+							
 							
 							System.out.print("Continuar fazendo movimentações S/N: ");
 							continuar = leia.next().toUpperCase().charAt(0);
@@ -100,22 +96,12 @@ public class TesteConta {
 								
 							} else if (continuar == 'N' || x == 10) { //
 								System.out.print("Digite o dia de hoje: ");
-								diaAtual = leia.nextInt();
-								 if (diaAtual == diaAniversario) {  //
-									 System.out.println("Parabéns! Você ganhou 5% com base no seu saldo!");
-									 saldoFinal = (saldo * 0.05) + saldo;
-									 System.out.printf("Seu saldo agora é de R$: %.2f\n\n",saldoFinal);
-									 saldo = saldoFinal;
-									 System.out.println("Movimentação realizada com sucesso!");
-									 
-							} else if (diaAtual != diaAniversario) {  //
-								System.out.printf("Seu saldo agora é de R$: %.2f\n\n", saldoFinal);
-								 System.out.println("Movimentação realizada com sucesso!");
-								
-							}  //
+								int diaAtual = leia.nextInt();
+								contaP.bonusAniversario(diaAtual);
+								System.out.printf("Seu saldo agora é de R$: %.2f\n\n",contaP.getSaldo());
+								System.out.println("Movimentação realizada com sucesso!");
 								 System.out.println("Obrigade por utilizar nossos serviços! Volte sempre!!");
 								 break;
-								
 							} //
 							else { //
 								System.out.println("Não foi possível identificar sua afirmação");
@@ -135,6 +121,7 @@ public class TesteConta {
 					} //
 				
 				else if (opcao == '2') { //
+					corrente contaC = new corrente(contadorTalao);
 					System.out.print("VOCÊ ESCOLHEU CONTA CORRENTE");
 					System.out.println("[BANCO 4U - G4]\n");
 					System.out.print("[O SEU LUGAR É AQUI]\n\n\n");
@@ -148,7 +135,7 @@ public class TesteConta {
 					if (aux == '2') {
 						break;
 					} //2 
-					System.out.printf("Saldo Atual R$: %.2f\n", saldo);
+					System.out.printf("Saldo Atual R$: %.2f\n", contaC.getSaldo());
 					
 					System.out.print("Deseja fazer alguma movimentação? S/N: ");
 					opcaoMovimentacao = leia.next().toUpperCase().charAt(0);
@@ -156,27 +143,23 @@ public class TesteConta {
 					if (opcaoMovimentacao == 'S') { //
 				      	for (x=1; x<=10; x++) { //
 				      		System.out.print("NOVA MOVIMENTACAO \n\n");
-							System.out.printf("Saldo Atual R$: %.2f \n",saldo);
+							System.out.printf("Saldo Atual R$: %.2f \n",contaC.getSaldo());
 							System.out.print("MOVIMENTO - D-debito ou C-Crédito: ");
 							movimento = leia.next().toUpperCase().charAt(0);
 							if (movimento == 'D') { //
 								System.out.print("Valor movimento R$: ");
 								valorMovimento = leia.nextDouble();
-								saldoFinal = saldo-valorMovimento;
-								saldo=saldoFinal;
-
+								contaC.debito(valorMovimento);
 							} else if (movimento == 'C') { //
 								System.out.print("Valor movimento R$: ");
 								valorMovimento = leia.nextDouble();
-								saldoFinal = saldo + valorMovimento;
-								saldo=saldoFinal;
-
+								contaC.credito(valorMovimento);
 							} else { //
 								System.out.println("Não foi possível identificar sua afirmação. Tente novamente \n  ");
 							} //
 							System.out.println("Movimentação realizada com sucesso!\n");
-							System.out.printf("Seu saldo agora é de: R$ %2.f\n\n",saldoFinal);
-							System.out.println("Obrigado por utilizar nossos serviços!\n");
+							System.out.printf("Seu saldo agora é de: R$ %2.f\n\n",contaC.getSaldo());
+							System.out.println("Obrigade por utilizar nossos serviços!\n");
 							     
 							System.out.print("Continuar fazendo movimentações S/N: ");
 							continuar = leia.next().toUpperCase().charAt(0);
@@ -199,11 +182,13 @@ public class TesteConta {
 					
 					// chama aqui funcao conta corrente (Maya)
 					char opcaoChequeE;
+					
 					 do { //
 						System.out.println("\n olá, você tem disponivel cheque especial. digite 1 para sim ou digite qualquer outro numero para  não ");
 						opcaoChequeE = leia.next().toUpperCase().charAt(0);	
-				      	System.out.println("Olá PARABÉNS voce selecionou o cheque especial");
-						contadorTalao=contadorTalao+1;
+						contaC.pediTalao(contadorTalao);
+				      	/*System.out.println("Olá PARABÉNS voce selecionou o cheque especial");
+						contadorTalao=contadorTalao+1;*/
 			     
 					} while (opcaoChequeE==1 && contadorTalao <=3 ); //
 						System.out.println("\n Não foi possivel solicitar o cheque especial, verifique se já ultilizou 3x ou se esta já  disponivel, \n Obrigado. volte sempre");

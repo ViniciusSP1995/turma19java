@@ -4,6 +4,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.basico;
+import entities.graduacao;
 import entities.medio;
 
 public class cadEstudante {
@@ -55,7 +56,7 @@ public class cadEstudante {
 			System.out.println("Digite o cpf do aluno:");
 			String cpf = leia.next();
 			
-			medio aluno = new medio(matricula,cpf);
+			medio aluno = new medio(matricula, cpf);
 			System.out.println("Digite a nota: ");
 			double nota =leia.nextDouble();
 			aluno.incluirPontos(nota);
@@ -70,6 +71,18 @@ public class cadEstudante {
 			System.out.println("Continua 1- sim ou 6- nao");
 			opcao = leia.next().charAt(0);
 			
+			} else if (opcao == '3') {
+				System.out.println("Digite a matricula do aluno: ");
+				int matricula = leia.nextInt();
+				System.out.println("Digite o cpf do aluno: ");
+				String cpf = leia.next();
+				
+				graduacao aluno = new graduacao(matricula, cpf);
+				System.out.println("Digite a nota: ");
+				double nota = leia.nextDouble();
+				
+				
+				
 			}
 		} while(opcao != '6');
 		
