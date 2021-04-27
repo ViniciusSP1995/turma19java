@@ -50,4 +50,10 @@ public class Conta {
 	public void SaldoFinal(double valor) {
 		saldo = saldo + valor;
 	}
+	public void debitoContaEspecial(double valor) {
+		if (saldo >=0) {
+			saldo = saldo - valor;
+		System.out.printf("Movimentação realizada com sucesso! Seu saldo agora é de R$: %.2f\n\n",getSaldo());
+		}
+}
 }
