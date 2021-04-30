@@ -5,18 +5,11 @@ public class Conta {
 	public int numero;
 	public String cpf;
 	private double saldo = 0;
-	public boolean ativa;
 	
 	public Conta(int numero, String cpf) {
 		this.numero = numero;
 		this.cpf = cpf;
 	}
-	public Conta(int numero, String cpf, boolean ativa) {
-		this.numero = numero;
-		this.cpf = cpf;
-		this.ativa = ativa;
-	}
-	
 	public Conta () {
 		
 	}
